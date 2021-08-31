@@ -35,8 +35,8 @@ Profile.defaultProps = {
     avatar: defaultImage,
 }
 
-Profile.PropTypesc = {
-    avatar: PropTypes.string,
+Profile.propTypes = {
+    avatar: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
     tag: PropTypes.string.isRequired,
     location: PropTypes.string.isRequired,
