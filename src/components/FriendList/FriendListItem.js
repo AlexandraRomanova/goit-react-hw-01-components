@@ -1,13 +1,16 @@
 import PropTypes from 'prop-types';
 import defaultImage from '../defaultImage.svg'
 
+import styles from './FriendListItem.module.css';
+
 const FriendListItem = ({ avatar, name, isOnline}) => {
     return (
-        <li className="item">
+        <li className={styles.item
+        }>
             {/* Здесь должен быть isOnline, который если true меняет цвет */}
-            <span className="status">{isOnline}</span>
-            <img className="avatar" src={avatar} alt={name} width="48" />
-            <p className="name">{name}</p>
+            <span className={isOnline ? styles.online : styles.offline}/>
+            <img className={styles.avatar} src={avatar} alt={name} width="48" />
+            <p className={styles.name}>{name}</p>
         </li>
     );
 }

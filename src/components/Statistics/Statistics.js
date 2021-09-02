@@ -1,26 +1,31 @@
 import PropTypes from 'prop-types';
+import styles from './Statistics.module.css'
 
 const Statistics = ({title, stats}) => {
-    return <section className="statistics">
-        {title && <h2>{title}</h2>}
+    return <section className={styles.statistics}>
+        {title && <h2 className={styles.title}>{title}</h2>}
 
-        <ul className="stat-list">
+        <ul className={styles.list}>
             {stats.map(stat => (
-                <li key={stat.id} className="item">
-                    <span className="label">{stat.label}</span>
-                    <span className="percentage">{stat.percentage}</span>
+                <li key={stat.id} className={styles.item} style={{backgroundColor: `rgb(${randomColor()} ${randomColor()} ${randomColor()})`}}>
+                    <span className={styles.label}>{stat.label}</span>
+                    <span className={styles.percentage}>{stat.percentage}</span>
                 </li>
             ))}
         </ul>
     </section>
 };
 
+function randomColor() {
+    return Math.floor(Math.random() * 255);
+}
+
 Statistics.defaultProps = {
     title: '',
 }
 
 Statistics.propTypes = {
-    title: PropTypes.string.isRequired,
+    title: PropTypes.string,
     stats: PropTypes.arrayOf(PropTypes.shape({
         id: PropTypes.string.isRequired,
         label: PropTypes.string.isRequired,
