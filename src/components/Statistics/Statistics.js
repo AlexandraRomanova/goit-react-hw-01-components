@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import styles from './Statistics.module.css'
 
-const Statistics = ({title, stats}) => {
+const Statistics = ({title='', stats}) => {
     return <section className={styles.statistics}>
         {title && <h2 className={styles.title}>{title}</h2>}
 
@@ -18,10 +18,6 @@ const Statistics = ({title, stats}) => {
 
 function randomColor() {
     return Math.floor(Math.random() * 255);
-}
-
-Statistics.defaultProps = {
-    title: '',
 }
 
 Statistics.propTypes = {
